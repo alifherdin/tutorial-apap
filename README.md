@@ -22,6 +22,13 @@
 4. **Pertanyaan 4: Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?**
    Jika mencari hanya berdasarkan nama, maka berdasarkan program yang sudah dibuat, tidak ada cara untuk melihat travel agensi yang diinginkan. Sedangkan jika ingin mencari nama dan diketahui ID agensinya, maka hal tersebut dapat dilakukan dengan mencari berdasarkan ID tersebut dengan link seperti berikut: http://localhost:8080/agensi/view/idAgensi/{ID_AGENSI}
 
+5. **Pertanyaan 5: Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/agensi/viewAll, apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.**
+   Saya menambahkan agensi dengan detail seperti berikut: <br />
+   ![alt text](https://i.ibb.co/WztMG9C/a.png) <br />
+   Kemudian saya membuka link ViewAll sepert pada pertanyaan di atas dan berikut adalah tampilan yang muncul: <br />
+   ![alt text](https://i.ibb.co/zP3w5kj/b.png) <br />
+   
+
 **SUMBER:** <br />
 https://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
 
