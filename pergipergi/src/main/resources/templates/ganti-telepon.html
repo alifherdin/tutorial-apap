@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Ganti Nomor Telepon Travel Agensi</title>
+</head>
+
+<body>
+    <h2>Nomor Telepon Berhasil Diubah</h2>
+    <h3 th:text = "'Nomor Telepon Baru: ' + ${agensi.getNoTelepon()}"></h3>
+    <a href="/agensi/viewAll">Kembali</a>
+</body>
+
+
+</html>

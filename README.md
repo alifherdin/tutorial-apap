@@ -1,6 +1,30 @@
 # Tutorial APAP
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
+---
+## Tutorial 2
+1. **Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.** <br />
+   Yang terjadi adalah munculnya halaman error berikut: <br />
+   ![alt text](https://i.ibb.co/zP14W8F/a.png) <br />
+   ![alt text](https://i.ibb.co/bFgCBB0/b.png) <br />
+   Hal ini dikarenakan template yang digunakan (add-agensi.html) untuk menampilkan halaman Add Agensi belum dibuat.
+
+2. **Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat.**
+   Anotasi @Autowired merupakan anotasi yang memungkinkan spring untuk melakukan dependency injection secara otomatis. Cara kerjanya adalah anotasi ini akan melakukan auto-scanning dimana class yang ingin dijadikan Bean berada dibawah anotasi dan package yang tepat, dan spring akan mencari class-class tersebut dan menjadikan Bean secara otomatis. Dengan adanya anotasi ini, kita tidak perlu melakukan inisiasi dari class yang menjadi bean tersebut sehingga anotasi ini menerapkan Dependency Injection.
+    
+
+3. **Pertanyaan 3: Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.** <br />
+   Yang terjadi adalah munculnya halaman ini: <br />
+   ![alt text](https://i.ibb.co/rwPPJN6/a.png) <br />
+   ![alt text](https://i.ibb.co/xqshM5z/b.png) <br />
+   Hal tersebut terjadi karena tidak adanya parameter yang dibutuhkan yaitu nomor telepon agensi untuk dimasukkan.
+
+4. **Pertanyaan 4: Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?**
+   Jika mencari hanya berdasarkan nama, maka berdasarkan program yang sudah dibuat, tidak ada cara untuk melihat travel agensi yang diinginkan. Sedangkan jika ingin mencari nama dan diketahui ID agensinya, maka hal tersebut dapat dilakukan dengan mencari berdasarkan ID tersebut dengan link seperti berikut: http://localhost:8080/agensi/view/idAgensi/{ID_AGENSI}
+
+**SUMBER:** <br />
+https://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
+
 
 ---
 ## Tutorial 1
