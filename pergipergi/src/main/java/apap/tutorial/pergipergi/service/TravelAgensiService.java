@@ -15,4 +15,5 @@ public interface TravelAgensiService {
 
     boolean hapusAgensi(String idAgensi);
     
+    boolean hapusAgensiStrip(String idAgensi);
 }

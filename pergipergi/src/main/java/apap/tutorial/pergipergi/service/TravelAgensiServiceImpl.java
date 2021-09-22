@@ -61,5 +61,20 @@ public class TravelAgensiServiceImpl implements TravelAgensiService {
 
         return false;
     }
+
+    @Override
+    public boolean hapusAgensiStrip(String idAgensi) {
+        for (int i = 0; i < listAgensi.size(); i++) {
+            TravelAgensiModel temp = listAgensi.get(i);
+            if (temp.getIdAgensi().equals(idAgensi)) {
+                if (temp.getNoTelepon().equals("-")) {
+                    listAgensi.remove(i);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     
 }

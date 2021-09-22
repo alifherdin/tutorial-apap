@@ -87,4 +87,19 @@ public class TravelAgensiController {
         }
     }
 
+
+    @RequestMapping({"agensi/deleteStrip/id-agensi/{idAgensi}", "agensi/delete/id-agensi/{idAgensi}"})
+    public String hapusStrip(@PathVariable(value = "idAgensi", required = false) String idAgensi, Model model) {
+        boolean temp = travelAgensiService.hapusAgensiStrip(idAgensi);
+
+        List<TravelAgensiModel>  listAgensi = travelAgensiService.getListAgensi();
+        model.addAttribute("listAgensi", listAgensi);
+          
+        if (temp != false) {
+            return "hapus-agensi";
+        } else {
+            return "kosong";
+        }
+    }
+
 }
