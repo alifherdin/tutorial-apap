@@ -2,6 +2,37 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 3
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)<br />
+@AllArgsConstructor = anotasi untuk membuat konstruktor otomatis dengan 1 argumen parameter setiap fieldnya<br />
+@NoArgsConstructor = anotasi untuk membuat konstruktor otomatis tanpa parameter pada field<br />
+@Setter = anotasi membuat membuat method setter secara otomatis<br />
+@Getter = anotasi membuat membuat method getter secara otomatis<br />
+@Entity = anotasi yang dibutuhkan untuk membuat sebuah entity JPA<br />
+@Table = anotasi untuk mendefinisikan class yang akan digunakan sebagai table pada database
+
+2. Pada class TravelAgensiDb, terdapat method findByNoAgensi, apakah kegunaan dari method tersebut?<br />
+   Method tersebut digunakan untuk mencari data agensi (berupa model) dengan paramter nomor agensi.
+
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn<br />
+   **JoinTable** merupakan anotasi relationship yang menghubungkan relasi satu dan yang lainnya menggunakan column dari tabel itu sendiri, sedangkan **JoinColumn** akan menggunakan tabel baru untuk menghubungkan kedua relasi tersebut.
+
+4. Pada class TourGuideModel, digunakan anotasi @JoinColumn pada atribut agensi, apa kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa perbedaan nullable dan penggunaan anotasi @NotNull.<br />
+   Kegunaan dar **name** adalah untuk menspesifikasikan sebuah kolom pada tabel, dan **referencedColumnName** menunjukkan kolom pada tabel lain yang menjadi referensi oleh kolom tadi. **nullable** adalah syntax yang menspesifikasikan sebuah kolom bisa berisi data Null atau tidak, dan bedanya dengan **@NotNull** adalah **@NotNull** bisa digunakan untuk validasi data yang dimasukkan sedangkan **nullable** hanya digunakan saat menspesifikasikan kolom.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER<br />
+   FetchType.LAZY = specifier ketika sebuah data dari sebuah table diambil, data terkait dari child relationnya hanya diambil ketika diperlukan.<br />
+   CascadeType.ALL = menyalakan mode cascade pada semua operasi (PERSIST, REMOVE, REFRESH, MERGE, DETACH) data pada database.<br />
+   FetchType.EAGER = specifier ketika sebuah data dari sebuah table diambil, data terkait dari child relationnya akan diambil berbarengan.
+
+https://stackoverflow.com/questions/13027214/what-is-the-meaning-of-the-cascadetype-all-for-a-manytoone-jpa-association <br />
+https://stackoverflow.com/questions/2990799/difference-between-fetchtype-lazy-and-eager-in-java-persistence-api <br />
+https://www.baeldung.com/jpa-cascade-types <br />
+https://www.baeldung.com/hibernate-notnull-vs-nullable <br />
+https://stackoverflow.com/questions/29332907/what-is-the-exact-meaning-of-the-jpa-entity-annotation <br />
+https://projectlombok.org/features/constructor
+
+---
 ## Tutorial 2
 1. **Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut: http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.** <br />
    Yang terjadi adalah munculnya halaman error berikut: <br />

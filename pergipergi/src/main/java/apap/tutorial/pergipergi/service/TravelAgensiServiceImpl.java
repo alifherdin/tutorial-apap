@@ -2,64 +2,60 @@ package apap.tutorial.pergipergi.service;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import apap.tutorial.pergipergi.model.TourGuideModel;
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
+import apap.tutorial.pergipergi.repository.TravelAgencyDb;
 
 @Service
+@Transactional
 public class TravelAgensiServiceImpl implements TravelAgensiService {
 
-    private List<TravelAgensiModel> listAgensi;
-
-    public TravelAgensiServiceImpl() {
-        listAgensi = new ArrayList<>();
-    }
+    @Autowired
+    TravelAgencyDb travelAgensiDb;
 
     @Override
-    public void addAgensi(TravelAgensiModel travelAgensiModel) {
-        listAgensi.add(travelAgensiModel);
+    public void addAgensi(TravelAgensiModel travelAgensi) {
+        travelAgensiDb.save(travelAgensi);
         
     }
 
     @Override
     public List<TravelAgensiModel> getListAgensi() {
-        return listAgensi;
+        return travelAgensiDb.findAll();
     }
 
     @Override
-    public TravelAgensiModel getAgensyByIdAgensi(String idAgensi) {
-        for (int i = 0; i < listAgensi.size(); i++) {
-            TravelAgensiModel temp = listAgensi.get(i);
-            if (temp.getIdAgensi().equals(idAgensi)) {
-                return temp;
-            }
-        }
+    public TravelAgensiModel getAgensiByNoAgensi(Long noAgensi) {
+        Optional<TravelAgensiModel> agensi = travelAgensiDb.findByNoAgensi(noAgensi);
 
-        return null;
+        if (agensi.isPresent()) {
+            return agensi.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public boolean gantiNomorTelepon (String idAgensi, String noTelepon) {
-        for (int i = 0; i < listAgensi.size(); i++) {
-            if (listAgensi.get(i).getIdAgensi().equals(idAgensi)) {
-                listAgensi.get(i).setNoTelepon(noTelepon);
-                return true;
-            }
-        }
+    public TravelAgensiModel updateAgensi(TravelAgensiModel travelAgensi) {
+        travelAgensiDb.save(travelAgensi);
 
-        return false;
+        return travelAgensi;
     }
 
-    @Override
-    public boolean hapusAgensi(String idAgensi) {
-        for (int i = 0; i < listAgensi.size(); i++) {
-            TravelAgensiModel temp = listAgensi.get(i);
-            if (temp.getIdAgensi().equals(idAgensi)) {
-                listAgensi.remove(i);
-                return true;
-            }
-        }
 
-        return false;
-    }
     
+    @Override
+    public List<TravelAgensiModel> getListAgensiSortName() {
+        return travelAgensiDb.findAllByOrderByNamaAgensiAsc();
+    }
+
+    @Override
+    public void hapusAgensi(Long noAgensi) {
+        travelAgensiDb.deleteById(noAgensi);
+    }
 }

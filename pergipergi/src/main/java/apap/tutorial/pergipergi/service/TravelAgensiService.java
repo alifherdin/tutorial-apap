@@ -1,18 +1,18 @@
 package apap.tutorial.pergipergi.service;
 
-import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import java.util.List;
+import apap.tutorial.pergipergi.model.TravelAgensiModel;
 
 public interface TravelAgensiService {
-
     void addAgensi(TravelAgensiModel travelAgensi);
 
     List<TravelAgensiModel> getListAgensi();
 
-    TravelAgensiModel getAgensyByIdAgensi(String idAgensi);
+    TravelAgensiModel getAgensiByNoAgensi(Long noAgensi);
 
-    boolean gantiNomorTelepon(String idAgensi, String noTelepon);
+    TravelAgensiModel updateAgensi(TravelAgensiModel travelAgensi);
 
-    boolean hapusAgensi(String idAgensi);
-    
+    List<TravelAgensiModel> getListAgensiSortName();
+
+    void hapusAgensi(Long noAgensi);
 }
