@@ -74,7 +74,6 @@ public class TourGuideController {
             return "kosong";
         }
 
-        
     }
 
     @PostMapping("/tour-guide/update")
@@ -85,23 +84,39 @@ public class TourGuideController {
         return "update-tour-guide";
     }
     
-
-    @GetMapping("/tour-guide/hapus/{noTourGuide}")
-    public String delGuideFormPage(@PathVariable Long noTourGuide, Model model) {
-        TourGuideModel tg = tourGuideService.ambilDariNoGuide(noTourGuide);
-        TravelAgensiModel ag = tg.getAgensi();
-        LocalTime open = ag.getWaktuBuka();
-        LocalTime close = ag.getWaktuTutup();
-
-        if (tesWaktu(open, close) == false) {
-            tourGuideService.hapusTourGuide(noTourGuide);
-            model.addAttribute("noGuide", noTourGuide);
     
+    @PostMapping("/tour-guide/delete")
+    public String deleteTourGuideSubmit(@ModelAttribute TravelAgensiModel agensi, Model model) {
+        model.addAttribute("noAgensi", agensi.getNoAgensi());
+
+        if (travelAgensiService.isClosed(agensi.getWaktuBuka(), agensi.getWaktuTutup())) {
+            for (TourGuideModel tourGuide : agensi.getListTourGuide()) {
+                tourGuideService.hapusTourGuide(tourGuide);
+            }
+
             return "hapus-tour-guide";
-        } else {
-            return "kosong";
         }
 
+        return "kosong";
     }
+
+
+    // @GetMapping("/tour-guide/hapus/{noTourGuide}")
+    // public String delGuideFormPage(@PathVariable Long noTourGuide, Model model) {
+    //     TourGuideModel tg = tourGuideService.ambilDariNoGuide(noTourGuide);
+    //     TravelAgensiModel ag = tg.getAgensi();
+    //     LocalTime open = ag.getWaktuBuka();
+    //     LocalTime close = ag.getWaktuTutup();
+
+    //     if (tesWaktu(open, close) == false) {
+    //         tourGuideService.hapusTourGuide(noTourGuide);
+    //         model.addAttribute("noGuide", noTourGuide);
+    
+    //         return "hapus-tour-guide";
+    //     } else {
+    //         return "kosong";
+    //     }
+
+    // }
 
 }

@@ -2,6 +2,20 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 4
+1. Jelaskan perbedaan th:include dan th:replace!<br />
+Perbedaan antara include dan replace adalah jika include hanya menyisipkan isi dari fragment kedalam sebuah elemen dari template, sedangkan replace menimpa semua isi dari elemen template tersebut dengan isi dari fragment
+
+2. Jelaskan apa fungsi dari th:object!<br />
+th:object merupakan object sebagai representasi dari form di html untuk dibaca oleh controller.
+
+1. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai? <br />
+penggunaan `*` pada syntax th:object adalah cara untuk menentukan elemen dari object yang telah didefinisikan oleh `$` dengan contoh jika objek Destinasi telah didefinisikan oleh `$` pada sebuah tabel, maka kolom Negara pada destinasi tersebut dapat ditampilkan dengan menggunakan `*`.
+<br /><br />
+https://stackoverflow.com/questions/37103958/difference-between-thymeleaf-include-and-replace <br />
+https://frontbackend.com/thymeleaf/working-with-forms-in-thymeleaf <br />
+https://stackoverflow.com/questions/57511424/difference-between-and
+---
 ## Tutorial 3
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)<br />
 @AllArgsConstructor = anotasi untuk membuat konstruktor otomatis dengan 1 argumen parameter setiap fieldnya<br />

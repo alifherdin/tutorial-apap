@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import java.util.List;
 import java.time.LocalTime;
+
+import apap.tutorial.pergipergi.model.DestinasiModel;
 import apap.tutorial.pergipergi.model.TourGuideModel;
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
+import apap.tutorial.pergipergi.service.DestinasiService;
 import apap.tutorial.pergipergi.service.TravelAgensiService;
 
 
@@ -24,21 +27,31 @@ public class TravelAgensiController {
     @Autowired
     private TravelAgensiService travelAgensiService;
 
+    @Qualifier("destinasiServiceImpl")
+    @Autowired
+    DestinasiService destinasiService;
+
+    private int jmlDest = 0;
 
     @GetMapping("agensi/add")
     public String addAgensiFormPage(Model model) {
         model.addAttribute("agensi", new TravelAgensiModel());
+        List<DestinasiModel> daftar = destinasiService.getListDestinasi();
+
+        model.addAttribute("jmlDest", jmlDest);
+        model.addAttribute("listDestinasi", daftar);
 
         return "form-add-agensi";
     }
-    
+
 
     @PostMapping("agensi/add")
     public String addAgensiSubmitPage(@ModelAttribute TravelAgensiModel agensi, Model model) {
         travelAgensiService.addAgensi(agensi);
 
         model.addAttribute("noAgensi", agensi.getNoAgensi());
-        
+
+
         return "add-agensi";
     }
 
@@ -64,9 +77,11 @@ public class TravelAgensiController {
     public String viewDetailAgensiPage(@RequestParam(value = "noAgensi") Long noAgensi, Model model) {
         TravelAgensiModel agensi = travelAgensiService.getAgensiByNoAgensi(noAgensi);
         List<TourGuideModel> listTourGuide = agensi.getListTourGuide();
+        List<DestinasiModel> listDestinasi = agensi.getListDestinasi();
 
         model.addAttribute("agensi", agensi);
         model.addAttribute("listTourGuide", listTourGuide);
+        model.addAttribute("listDestinasi", listDestinasi);
 
         return "view-agensi";
     }
@@ -108,14 +123,26 @@ public class TravelAgensiController {
 
         if (tesWaktu(open, close) == false && jmlGuide == 0) {
             travelAgensiService.hapusAgensi(noAgensi);
-
             model.addAttribute("agensi", noAgensi);
-    
+
             return "hapus-agensi";
         } else {
             return "kosong";
         }
+    }
 
-        
+
+    @PostMapping("/agensi/tambahrow")
+    public String tambahRowDestinasi(@ModelAttribute TravelAgensiModel agensi, Model model) {
+        jmlDest += 1;
+
+        return addAgensiFormPage(model);
+    }
+
+    @PostMapping("/agensi/hapusrow")
+    public String hapusRowDestinasi(@ModelAttribute TravelAgensiModel agensi, Model model) {
+        jmlDest -= 1;
+
+        return addAgensiFormPage(model);
     }
 }
