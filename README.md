@@ -15,6 +15,13 @@ WebClient merupakan atribut yang berguna untuk melakukan HTTP request pada java.
 4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
 ResponseEntity merupakan atribut yang berguna untuk menampilkan dan memanipulasi http response yang dikirim dari sebuah server ataupun API seperti pesan yang *custom* pada body dari response tersebut. Sedangkan BindingResult merupakan atribut yang dapat membaca apabila terdapat error pada request ke API seperti field yang error pada sebuah form dan berguna untuk memvalidasi input yang dimasukkan pengguna ke API.
 
+<br /><br />
+https://stackoverflow.com/questions/10413886/what-is-the-use-of-bindingresult-interface-in-spring-mvc/36715053 <br />
+https://www.baeldung.com/spring-response-entity <br />
+https://www.baeldung.com/jackson-annotations <br />
+https://www.baeldung.com/jackson-ignore-properties-on-serialization <br />
+https://www.postman.com/
+
 ---
 ## Tutorial 4
 1. Jelaskan perbedaan th:include dan th:replace!<br />
