@@ -95,6 +95,8 @@ public class TourGuideRestController {
             return ResponseEntity.ok("Change umur tour guide success");
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No tour guide " + String.valueOf(noTG) + " not found.");
+        }catch (UnsupportedOperationException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Travel agensi is still open!");
         }
 
     }

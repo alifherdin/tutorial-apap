@@ -2,6 +2,20 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 5
+1. Apa itu Postman? Apa kegunaannya?<br />
+Postman adalah aplikasi API tester buatan Postman, Inc. yang tersedia untuk Windows, Linux, maupun OSX. Kegunaan aplikasi ini adalah untuk mengakses dan memanipulasi API yang dibuat pada sebuah aplikasi. Hal ini dikarenakan browser kadang-kadang tidak memiliki support method selain GET pada address bar maupun akses yang dibutuhkan untuk mengakses API tersebut, sehingga dibuatlah aplikasi ini untuk membantu developer dalam membuat API.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+Anotasi @JsonIgnoreProperties yang menghindari serialisasi atribut tertentu ini dapat berguna untuk menghindari Stackoverflow yang terjadi akibat pembacaan atribut yang saling mereferensi satu sama lain seperti pada kasus Agensi dan Tour Guide. Selanjutnya @JsonProperty merupakan anotasi yang berguna untuk menentukan nama yang digunakan pada serialisai/deserialisasi (seperti atribut) pada JSON yang digunakan, sehingga nama atribut dapat diatur sesuai keinginan.
+
+3. Apa kegunaan atribut WebClient?
+WebClient merupakan atribut yang berguna untuk melakukan HTTP request pada java. Atribut ini dapat digunakan untuk melakukan request ke sebuah server dan menerima balasannya sebagai sebuah variabel dan diolah pada aplikasi spring yang dibuat.
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+ResponseEntity merupakan atribut yang berguna untuk menampilkan dan memanipulasi http response yang dikirim dari sebuah server ataupun API seperti pesan yang *custom* pada body dari response tersebut. Sedangkan BindingResult merupakan atribut yang dapat membaca apabila terdapat error pada request ke API seperti field yang error pada sebuah form dan berguna untuk memvalidasi input yang dimasukkan pengguna ke API.
+
+---
 ## Tutorial 4
 1. Jelaskan perbedaan th:include dan th:replace!<br />
 Perbedaan antara include dan replace adalah jika include hanya menyisipkan isi dari fragment kedalam sebuah elemen dari template, sedangkan replace menimpa semua isi dari elemen template tersebut dengan isi dari fragment
