@@ -10,5 +10,5 @@ public interface TourGuideService {
 
     TourGuideModel updateTourGuide(TourGuideModel tourGuide);
 
-    void hapusTourGuide(Long x);
+    void hapusTourGuide(TourGuideModel x);
 }

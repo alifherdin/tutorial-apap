@@ -2,42 +2,65 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <title>PergiPergi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"></head>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
 <body>
-<div class="container">
-    <div class="card m-4 p-4">
-        <div class="card-body">
-            <div class="justify-content-center">
-                <h2>Tambah Agensi</h2>
-                <br>
-                <form th:action="@{/agensi/add}" th:object="${agensi}" method="POST">
-                    Nama Agensi : <br>
-                    <input class="form-control" type="text" name="namaAgensi"/>
-                    <br><br>
- 
-                    Alamat Agensi: <br>
-                    <input class="form-control" type="text" name="alamatAgensi"/>
-                    <br><br>
- 
-                    Nomor Telepon : <br>
-                    <input class="form-control" type="text" name="noTeleponAgensi"/>
-                    <br><br>
- 
-                    Waktu Buka : <br>
-                    <input required class="form-control" type="time" name="waktuBuka" />
-                    <br><br>
- 
-                    Waktu Tutup : <br>
-                    <input required class="form-control" type="time" name="waktuTutup" />
-                    <br><br>
- 
-                    <button class="btn btn-primary" type="submit">Submit</button>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+    <div class="container">
+        <div class="card m-4 p-4">
+            <div class="card-body">
+                <div class="justify-content-center">
+                    <h2>Tambah Agensi</h2>
+                    <br>
+                    <form id = "agensi-form" th:action="@{/agensi/add}" th:object="${agensi}" method="POST">
+                        Nama Agensi : <br>
+                        <input class="form-control" type="text" name="namaAgensi" form="agensi-form"/><br><br>
+    
+                        Alamat Agensi: <br>
+                        <input class="form-control" type="text" name="alamatAgensi" form="agensi-form"/><br><br>
+    
+                        Nomor Telepon : <br>
+                        <input class="form-control" type="text" name="noTeleponAgensi" form="agensi-form"/><br><br>
+    
+                        Waktu Buka : <br>
+                        <input required class="form-control" type="time" name="waktuBuka" form="agensi-form"/><br><br>
+    
+                        Waktu Tutup : <br>
+                        <input required class="form-control" type="time" name="waktuTutup" form="agensi-form"/><br>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Destinasi</th>
+                                    <th><button class="btn btn-primary" type="submit" form="add-form">Tambah Row</button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:if="${jmlDest} != 0" th:each="i : ${#numbers.sequence(0, jmlDest - 1)}">
+                                    <td>
+                                        <select name="agensi_destinasi" th:field="*{listDestinasi}" class="form-control" form="agensi-form">
+                                            <option th:each="j : ${listDestinasi}" th:value="${j.noDestinasi}" th:text="${j.negaraDestinasi}"></option>
+                                        </select>
+                                    </td>
+                                    <td>                                    
+                                        <button class="btn btn-danger" type="submit" form="rem-form">Hapus</button><br><br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+    
+                    </form>
+                    <form id = "add-form" th:action="@{/agensi/tambahrow}" method="POST"></form>
+                    <form id = "rem-form" th:action="@{/agensi/hapusrow}" method="POST"></form>
+
+                    
+                    <button class="btn btn-primary" type="submit" form="agensi-form">Submit</button>
                     <a class="btn btn-primary" href="/">Home</a>
-                </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
  
 </body>
 </html>

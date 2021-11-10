@@ -30,7 +30,7 @@ public class DestinasiModel implements Serializable{
     private String negaraDestinasi;
 
     @Column(name = "is_bebas_visa", nullable = false)
-    private boolean isBebasVisa;
+    private Boolean isBebasVisa;
 
     @ManyToMany(mappedBy = "listDestinasi")
     List<TravelAgensiModel> listTravelAgensi;

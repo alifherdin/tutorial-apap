@@ -59,7 +59,6 @@ public class TravelAgensiModel implements Serializable {
         joinColumns = @JoinColumn(name = "no_agensi"),
         inverseJoinColumns = @JoinColumn(name = "no_destinasi")
     )
-
     List<DestinasiModel> listDestinasi;
     
 }

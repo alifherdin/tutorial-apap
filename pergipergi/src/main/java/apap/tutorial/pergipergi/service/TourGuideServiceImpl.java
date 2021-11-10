@@ -41,8 +41,8 @@ public class TourGuideServiceImpl implements TourGuideService {
     }
 
     @Override
-    public void hapusTourGuide(Long x) {
-        tourGuideDb.deleteByNoTourGuide(x);
+    public void hapusTourGuide(TourGuideModel x) {
+        tourGuideDb.deleteByNoTourGuide(x.getNoTourGuide());
         
     }
     

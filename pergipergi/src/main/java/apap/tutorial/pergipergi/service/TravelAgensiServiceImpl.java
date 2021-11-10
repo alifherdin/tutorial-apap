@@ -1,6 +1,7 @@
 package apap.tutorial.pergipergi.service;
 
 import java.util.List;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -57,5 +58,14 @@ public class TravelAgensiServiceImpl implements TravelAgensiService {
     @Override
     public void hapusAgensi(Long noAgensi) {
         travelAgensiDb.deleteById(noAgensi);
+    }
+
+    @Override
+    public boolean isClosed(LocalTime waktuBuka, LocalTime waktuTutup) {
+        LocalTime now = LocalTime.now();
+        if(now.isBefore(waktuBuka) || now.isAfter(waktuTutup)) {
+            return true;
+        }
+        return false;
     }
 }
