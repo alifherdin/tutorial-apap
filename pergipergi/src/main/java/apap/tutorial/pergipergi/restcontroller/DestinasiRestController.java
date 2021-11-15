@@ -82,4 +82,9 @@ public class DestinasiRestController {
     private List<DestinasiModel> retrieveListDestinasi() {
         return destinasiRestService.retrieveListDestinasi();
     }
+
+    @GetMapping(value="/destinasi-list/{namaDestinasi}")
+    private List<DestinasiModel> findDestByNama (@PathVariable("namaDestinasi") String namaDestinasi) {
+        return destinasiRestService.ambilDariNama(namaDestinasi);
+    }
 }

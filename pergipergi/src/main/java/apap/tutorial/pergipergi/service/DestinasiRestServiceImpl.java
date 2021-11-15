@@ -1,6 +1,7 @@
 package apap.tutorial.pergipergi.service;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -57,6 +58,19 @@ public class DestinasiRestServiceImpl implements DestinasiRestService {
     @Override
     public List<DestinasiModel> retrieveListDestinasi() {
         return destinasiDb.findAll();
+    }
+
+    @Override
+    public List<DestinasiModel> ambilDariNama(String negara) {
+        List<DestinasiModel> ngr = new ArrayList<>();
+
+        for (DestinasiModel i : retrieveListDestinasi()) {
+            if (i.getNegaraDestinasi().equals(negara)) {
+                ngr.add(i);
+            }
+        }
+
+        return ngr;
     }
     
     

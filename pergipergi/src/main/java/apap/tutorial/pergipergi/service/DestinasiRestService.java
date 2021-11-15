@@ -15,5 +15,7 @@ public interface DestinasiRestService {
     DestinasiModel updateDestinasi(Long noDestinasi, DestinasiModel destinasiUpdate);
 
     List<DestinasiModel> retrieveListDestinasi();
+
+    List<DestinasiModel> ambilDariNama(String negara);
     
 }
