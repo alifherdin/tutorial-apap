@@ -10,22 +10,23 @@
 <body>
     <nav th:replace="fragments/fragment :: navbar"></nav>
 <div class="container">
-  <h2>Daftar Seluruh Destinasi</h2>
+  <h2>Daftar Seluruh User</h2>
   <br>
   <table class="table">
       <thead>
           <tr>
-              <th>No. Destinasi</th>
-              <th>Nama Destinasi</th>
-              <th>Bebas Visa?</th>
+              <th>Username</th>
+              <th>Nama User</th>
+              <th>Email</th>
+              <th>Hapus</th>
           </tr>
       </thead>
       <tbody>
-          <tr th:each="destinasi : ${listDestinasi}">
-              <td th:text="${destinasi.noDestinasi}"></td>
-              <td th:text="${destinasi.negaraDestinasi}"></td>
-              <td th:if="${destinasi.isBebasVisa == false}" th:text="'TIDAK'"></td>
-              <td th:if="${destinasi.isBebasVisa == true}" th:text="'YA'"></td>
+          <tr th:each="i : ${listUsers}">
+              <td th:text="${i.username}"></td>
+              <td th:text="${i.nama}"></td>
+              <td th:text="${i.email}"></td>
+              <td><a class="btn btn-danger" th:href="@{/user/hapus/} + ${i.username}">Hapus User</a></td>
           </tr>
       </tbody>
   </table>

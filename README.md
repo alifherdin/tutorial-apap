@@ -2,6 +2,29 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 6
+**1.** **Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?** <br />
+Otentikasi adalah penentuan apakah sebuah pengguna terdaftar di suatu sistem atau tidak, sedangkan Otorisasi merupakan penentuan apakah sebuah entitas memiliki wewenang yang mencukupi untuk mengakses sebuah fitur dari sistem. Pada kode yang telah dibuat, Otentikasi terdapat pada WebSecurityConfig.java, sedangkan otorisasi telah saya buat di UserController untuk beberapa fitur dan UserDetailsService untuk keseluruhannya.
+
+**2.** **Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.** <br />
+BCryptPasswordEncoder merupakan fungsi yang disediakan oleh Spring Security untuk mengenkripsi data sensitif. Cara kerjanya adalah dengan menggunakan algoritma BCrypt strong hashing.
+
+**3.** **Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian?** <br />
+Menurut saya, password sebaiknya di Hashing. Hal ini dikarenakan hasil dari hashing tidak bisa dikembalikan ke value aslinya sehingga kemungkinan value aslinya diketahui lebih kecil.
+
+**4.** **Jelaskan secara singkat apa itu UUID beserta penggunaannya!** <br />
+UUID merupakan sebuah standar yang didesain untuk menjadi identifier dalam proses tukar-menukar data. Penggunaannya adalah untuk menjadi identifier atau penanda dari sebuah entitas seperti data dari sebuah database.
+
+**5.** **Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut.**
+Kegunaan dari UserDetailsServiceImpl yang merupakan implementasi dari UserDetailsService merupakan class yang berguna untuk menerima data dari database Spring Authentication dimana data tersebut (biasanya dicari melalui username) tersedia pada objek dari class tersebut selama user ter-login.
+
+<br /><br />
+https://duo.com/labs/tech-notes/breaking-down-uuids <br />
+https://www.javadevjournal.com/spring/spring-security-userdetailsservice/ <br />
+https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html <br />
+https://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/apidocs/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.html <br />
+
+---
 ## Tutorial 5
 1. Apa itu Postman? Apa kegunaannya?<br />
 Postman adalah aplikasi API tester buatan Postman, Inc. yang tersedia untuk Windows, Linux, maupun OSX. Kegunaan aplikasi ini adalah untuk mengakses dan memanipulasi API yang dibuat pada sebuah aplikasi. Hal ini dikarenakan browser kadang-kadang tidak memiliki support method selain GET pada address bar maupun akses yang dibutuhkan untuk mengakses API tersebut, sehingga dibuatlah aplikasi ini untuk membantu developer dalam membuat API.
