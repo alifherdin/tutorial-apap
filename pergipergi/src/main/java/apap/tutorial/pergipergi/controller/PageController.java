@@ -35,8 +35,10 @@ public class PageController {
 
         if (checkPrivilege().equals("agen")) {
             model.addAttribute("isAgen", true);
+        } else if (checkPrivilege().equals("admin")) {
+            model.addAttribute("isAdmin", true);
         } else {
-            model.addAttribute("isAgen", false);
+            model.addAttribute("isUser", true);
         }
         
         return "home";

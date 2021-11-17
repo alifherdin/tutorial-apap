@@ -16,10 +16,11 @@
             <h2>Selamat datang di PergiPergi!</h2>
             <div class="d-flex justify-content-center">
                 <a th:href="@{/agensi/viewall}" class="mx-2 btn btn-primary">View All Agensi</a>
-                <a th:href="@{/agensi/add}" class="mx-2 btn btn-outline-primary">Add Agensi</a>
+                <a th:href="@{/agensi/add}" class="mx-2 btn btn-primary">Add Agensi</a>
             </div>
             <div class="my-3 d-flex justify-content-center">
                 <a th:href="@{/user/add}" class="mx-2 btn btn-primary">Tambah User</a>
+                <a th:if="${isAdmin == true}" th:href="@{/user/allUsers}" class="mx-2 btn btn-outline-primary">View All Users</a>
                 <a th:href="@{/destinasi/viewall}" class="mx-2 btn btn-primary">View All Destinasi</a>
                 <a th:href="@{/user/password-change}" class="mx-2 btn btn-primary">Ubah Password</a>
                 <a th:if="${isAgen == true}" th:href="@{/destinasi/add}" class="mx-2 btn btn-outline-primary">Add Destinasi</a>
