@@ -58,7 +58,12 @@ public class UserController {
 
     @PostMapping("/add")
     public String addUserSubmit(@ModelAttribute UserModel user, Model model) {
-        userService.addUser(user);
+        UserModel z = userService.addUser(user);
+
+        if (z.getNama().equals("Error: Email sudah dipakai.")) {
+            return "kosong";
+        }
+
         model.addAttribute("user", user);
 
         return "redirect:/";

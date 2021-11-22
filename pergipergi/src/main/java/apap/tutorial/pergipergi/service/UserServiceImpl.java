@@ -20,10 +20,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel addUser(UserModel user) {
-        String pass = encrypt(user.getPassword());
-        user.setPassword(pass);
 
-        return userDb.save(user);
+        for (UserModel i : seeAllUsers()) {
+            if ((i.getEmail().equals(user.getEmail()))) {
+                user.setNama("Error: Email sudah dipakai.");
+            }
+        }
+
+        if (!(user.getNama().equals("Error: Email sudah dipakai."))) {
+            String pass = encrypt(user.getPassword());
+            user.setPassword(pass);
+            userDb.save(user);
+        }
+
+        return user;
     }
 
     @Override
@@ -62,5 +72,6 @@ public class UserServiceImpl implements UserService {
 
         return temp;
     }
+
     
 }
