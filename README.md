@@ -4,7 +4,7 @@
 ---
 ## Tutorial 7
 **1.** **Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan** <br />
-Pada latihan ini, saya membuat bagian fronted dari sebuah website untuk jual-beli online. Pembuatan tersebut terdiri dari membuat Item layaknya sebuah model pada springboot, kemudian membuat List yang akan *menampung* Item-Item tersebut untuk ditampilkan seperti container. Selanjutnya routing ditambahkan sehingga ketika web dibuka di browser dan routing bekerja untuk menampilkan alamat tertentu. Kemudian halaman yang ditampilkan terdiri dari Item-Item yang digabungkan ke dalam list untuk dijadikan stateful component untuk di render.
+Pada latihan ini, saya membuat bagian fronted dari sebuah website untuk jual-beli online. Pembuatan tersebut terdiri dari membuat Item layaknya sebuah model pada springboot, kemudian membuat List yang akan *menampung* Item-Item tersebut untuk ditampilkan seperti container. Selanjutnya routing ditambahkan sehingga ketika web dibuka di browser dan routing bekerja untuk menampilkan alamat tertentu. Kemudian halaman yang ditampilkan terdiri dari Item-Item yang digabungkan ke dalam list untuk dijadikan stateful component untuk di render, contoh dari penggunaan props maupun manipulasi state adalah seperti berikut:
 
 ![](https://i.ibb.co/Lv8wKXN/Screenshot-2021-11-24-212133.png)
 ![](https://i.ibb.co/GHczQkf/Screenshot-2021-11-24-212152.png)
