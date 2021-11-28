@@ -2,7 +2,7 @@ import React from 'react';
 import listItems from "../../items.json"
 import List from "../../components/List/index";
 import "./index.css"
-import { Badge } from '@mui/material';
+import { Badge, IconButton } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ViewStreamIcon from '@mui/icons-material/ViewStream';
@@ -16,6 +16,7 @@ export default class Home extends React.Component {
             cartItems: [],
             cartHidden: true,
             balance: 120,
+            dark: false
         };
     }
 
@@ -46,6 +47,21 @@ export default class Home extends React.Component {
         this.setState({ shopItems: tempShopItems });
     }
 
+    darkMode = () => {
+        if (this.state.dark === true) {
+            document.getElementById('background').style.backgroundColor = 'black';
+            document.getElementById('background').style.color = 'white';
+        } else {
+            document.getElementById('background').style.backgroundColor = 'white';
+            document.getElementById('background').style.color = 'black';
+        }
+
+        
+        const dm = !this.state.dark;
+
+        this.setState({ dark: dm });
+    }
+
     handleToggle = () => {
         const cartHidden = this.state.cartHidden;
         this.setState({ cartHidden: !cartHidden })
@@ -74,8 +90,10 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            <div id='background'>
+                <div className="container-fluid">
                 <h1 className="text-center mt-3 mb-0">Mini Commerce</h1>
+                <button onClick={this.darkMode}>Mode Dark/Light</button>
                 <div style={{ position: 'fixed', top: 25, right: 25 }}>
                     <Fab variant="extended" onClick={this.handleToggle}>
                         {this.state.cartHidden ?
@@ -110,6 +128,7 @@ export default class Home extends React.Component {
                         </div>}
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
