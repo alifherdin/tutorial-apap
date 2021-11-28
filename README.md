@@ -2,6 +2,32 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 7
+**1.** **Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan** <br />
+Pada latihan ini, saya membuat bagian fronted dari sebuah website untuk jual-beli online. Pembuatan tersebut terdiri dari membuat Item layaknya sebuah model pada springboot, kemudian membuat List yang akan *menampung* Item-Item tersebut untuk ditampilkan seperti container. Selanjutnya routing ditambahkan sehingga ketika web dibuka di browser dan routing bekerja untuk menampilkan alamat tertentu. Kemudian halaman yang ditampilkan terdiri dari Item-Item yang digabungkan ke dalam list untuk dijadikan stateful component untuk di render, contoh dari penggunaan props maupun manipulasi state adalah seperti berikut:
+
+![](https://i.ibb.co/Lv8wKXN/Screenshot-2021-11-24-212133.png)
+![](https://i.ibb.co/GHczQkf/Screenshot-2021-11-24-212152.png)
+
+
+**2.** **Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?** <br />
+Perbedaan dari state dengan props terletak pada fungsi dan sifatnya, dimana props merupakan sebuah 'variabel' yang sudah dibuat di awal dimana variabel tersebut tiak bisa diubah setelah distate dan biasanya digunakan untuk menginisiasi sebuah class, sedangkan state adalah 'variabel' yang berjalan bersama class tersebut, bisa berubah dan biasanya berisi 'state' atau kondisi bisa berupa variabel-variabel yag dimiliki class tersebut.
+
+**3.** **Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.** <br />
+Penggunaan component pada rect memang sebaiknya dilakukan untuk mengurangi pembuatan kode yang berulang-ulang untuk bagian halaman yang sama.
+
+**4.** **Apa perbedaan class component dan functional component?** <br />
+Perbedaan antara keduanya adalah dimana class component merupakan komponen Stateful dan bisa menggunakan state serta bisanya menggunakan syntax standar JavaScript, sedangkan Function component merupakan komponen Stateless yang merupakan sebuah fungsi yang mengembalikan JSX biasanya tidak bisa menggunakan State (hanya props) didalamnya.
+
+**5.** **Dalam react, apakah perbedaan component dan element?** <br />
+React element merupakan sebuah statement di kode react yang menghasilkan DOM pada html seperti `<div>`, sedangkan component merupakan statement berupa class ataupun fungsi yang menghasilkan react element untuk di render dan biasanya digunakan untuk elemen yang didalamnya terjadi operasi logis maupun matematis didalamnya.
+
+<br /><br />
+https://medium.com/wesionary-team/react-functional-components-vs-class-components-86a2d2821a22<br />
+https://stackoverflow.com/questions/30971395/difference-between-react-component-and-react-element<br />
+https://kentcdodds.com/blog/props-vs-state
+
+---
 ## Tutorial 6
 **1.** **Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?** <br />
 Otentikasi adalah penentuan apakah sebuah pengguna terdaftar di suatu sistem atau tidak, sedangkan Otorisasi merupakan penentuan apakah sebuah entitas memiliki wewenang yang mencukupi untuk mengakses sebuah fitur dari sistem. Pada kode yang telah dibuat, Otentikasi terdapat pada WebSecurityConfig.java, sedangkan otorisasi telah saya buat di UserController untuk beberapa fitur dan UserDetailsService untuk keseluruhannya.
