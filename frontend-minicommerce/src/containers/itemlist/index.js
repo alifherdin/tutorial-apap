@@ -181,7 +181,6 @@ class ItemList extends Component {
     async sendAddToCart(body) {
         try {
             const { data } = await APIConfig.post("/cart", body);
-            this.setState({ searchItems: data.result });
             this.loadData();
         } catch (error) {
             alert("Oops terjadi masalah pada server");
@@ -190,8 +189,17 @@ class ItemList extends Component {
         this.loadJumlahItemCart();
     }
 
-    handleAddtoCart(item) {
+    async handleAddtoCart(item) {
         const jumlah = document.getElementById("item=" + item.id).value;
+        const { data } = await APIConfig.get("/cart");
+        let jmlDiCart = 0;
+
+        for (let i = 0; i < data.result.length; i++) {
+            if (data.result[i].item.id === item.id) {
+                jmlDiCart = data.result[i].quantity;
+            }
+        }
+
         const reqBody = [
             {
                 "idItem": item.id,
@@ -199,7 +207,7 @@ class ItemList extends Component {
             }
         ]
         this.loadData();
-        if (jumlah <= item.quantity) {
+        if (jumlah <= item.quantity - jmlDiCart) {
             this.sendAddToCart(reqBody[0]);
             this.loadData();
             
