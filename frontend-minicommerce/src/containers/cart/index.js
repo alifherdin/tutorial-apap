@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CartItem from "../../components/CartItem";
-import Button from '../../components/button/';
+import Button from '@mui/material/Button';
 import './styles.modules.css';
 import APIConfig from "../../api/APIConfig";
 import { Link } from 'react-router-dom';
@@ -83,9 +83,10 @@ class Cart extends Component {
             <div className='itemList'>
                 <h1 className='title'>All Cart Items</h1>
                 <Link to={'/'}>
-                    <Button > Back to Items List</Button>
+                    <Button variant="outlined" style={{ position: 'fixed', top: 25, left: 25 }}> Back to Items List</Button>
                 </Link> <br /><br />
-                <button onClick={this.handleCheckout}> Checkout </button>
+                {this.state.checkoutable ? <Button variant="outlined" style={{ position: 'fixed', top: 25, right: 25 }} onClick={this.handleCheckout}> Checkout </Button>
+                : null}
                 <div>
                     {this.state.cartItems.map((ci) => (
                         <CartItem

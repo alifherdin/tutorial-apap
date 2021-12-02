@@ -7,7 +7,6 @@ import Modal from '../../components/modal';
 import { Badge } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import ViewStreamIcon from '@mui/icons-material/ViewStream';
 import { Link } from 'react-router-dom';
 
 
@@ -100,6 +99,7 @@ class ItemList extends Component {
                 quantity: this.state.quantity
             };
             await APIConfig.post("/item", data);
+            this.loadData();
             this.setState({
                 title: "",
                 price: 0,
@@ -107,7 +107,6 @@ class ItemList extends Component {
                 category: "",
                 quantity: 0
             })
-            this.loadData();
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
@@ -138,20 +137,20 @@ class ItemList extends Component {
                 quantity: this.state.quantity
             };
             await APIConfig.put(`/item/${this.state.id}`, data);
-            this.setState({
-                id: "",
-                title: "",
-                price: 0,
-                description: "",
-                category: "",
-                quantity: 0
-            })
             this.loadData();
         } catch (error) {
             alert("Oops terjadi masalah pada server");
             console.log(error);
         }
         this.handleCancel(event);
+        this.setState({
+            id: "",
+            title: "",
+            price: 0,
+            description: "",
+            category: "",
+            quantity: 0
+        })
     }
 
     handleCancel(event) {
@@ -199,9 +198,11 @@ class ItemList extends Component {
                 "quantity": jumlah
             }
         ]
+        this.loadData();
         if (jumlah <= item.quantity) {
             this.sendAddToCart(reqBody[0]);
             this.loadData();
+            
         } else {
             alert("Stok tidak cukup!");
         }
