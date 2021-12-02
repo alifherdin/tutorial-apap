@@ -2,6 +2,33 @@
 ## Authors
 * **Muhammad Alif Herdin Besila** - *1906399120* - *B*
 ---
+## Tutorial 8
+**1.** **Ceritakan langkah-langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah-langkah tersebut?** <br />
+Pada nomor 1, saya nambahkan perintah setState yang mengembalikan atribut-atribut state agar menjadi kosong kembali setelah diproses ke backend. Hal ini perlu dilakukan karena setelah add/edit item, maka state belum kembali ke semula sebelum dilakukan setstate seperti yang disebutkan di atas.
+
+**2.** **Jelaskan fungsi dari async dan await!** <br />
+Async merupakan syntax fungsi yang menandakan bahwa fungsi tersebut merupakan fungsi yang mereturn elemen Promise, yaitu elemen yang mana outputnya perlu 'menunggu' seperti request web. Sedangkan Await merupakan syntax yang menandakan bahwa sebuah fungsi atau variabel akan menunggu Promise tersebut, seperti menunggu request web.
+
+**3.** **Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle pada pertanyaan ini.** <br />
+![](https://i.ibb.co/hyCykVw/Untitled.png)
+![](https://i.ibb.co/2SQk621/Untitled2.png)
+![](https://i.ibb.co/C2pTfqP/Untitled3.png)
+![](https://i.ibb.co/2tGRqQ9/Untitled4.png)
+
+**4.** **Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount.**<br />
+- ComponentDidMount merupakan fungsi yang berjalan ketika sebuah komponen dimuat seperti saat halaman di-load dan berfungsi untuk melakukan sesuatu yang diinginkan pengguna ketika sebuah komponen tersebut dimuat seperti loadData dari backend ketika halaman di-load. 
+- ShouldComponentUpdate merupakan fungsi yang berjalan ketika ada perubahan di state atau props dan berguna untuk menentukan component perlu diupdate atau tidak sekiranya ada perubahan pada state atau props seperti ketika adanya perubahan state untuk dark mode yang mengakibatkan komponen harus di re-render. 
+- ComponentDidUpdate merupakan fungsi yang dipanggil ketika component diupdate dan berfungsi untuk melakukan hal yang diinginkan pengguna ketika component diupdate seperti menampilkan alert "Anda telah melakukan hal blablabla!".
+- ComponentWillReceiveProps merupakan fungsi yang sudah tua (sebisa mungkin tidak digunakan), komponen ini berjalan ketika ada perubahan dari props dan berguna untuk menentukan apa yang akan dilakukan ketika terjadi perubahan tersebut seperti ketika props berubah, kita membutuhkan refresh data yang dimuat.
+- ComponentWillUnmount merupakan fungsi yang berjalan ketika komponen dihilangkan dari halaman dan berfungsi untuk melakukan sesuatu ketika hal tersebut terjadi seperti mengembalikan state ke jumlah semula ketika modal ditutup.
+
+<br />
+
+https://reactjs.org/docs/react-component.html<br />
+https://www.w3schools.com/js/js_async.asp<br />
+https://www.w3schools.com/js/js_promise.asp
+
+---
 ## Tutorial 7
 **1.** **Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan** <br />
 Pada latihan ini, saya membuat bagian fronted dari sebuah website untuk jual-beli online. Pembuatan tersebut terdiri dari membuat Item layaknya sebuah model pada springboot, kemudian membuat List yang akan *menampung* Item-Item tersebut untuk ditampilkan seperti container. Selanjutnya routing ditambahkan sehingga ketika web dibuka di browser dan routing bekerja untuk menampilkan alamat tertentu. Kemudian halaman yang ditampilkan terdiri dari Item-Item yang digabungkan ke dalam list untuk dijadikan stateful component untuk di render, contoh dari penggunaan props maupun manipulasi state adalah seperti berikut:
